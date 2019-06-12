@@ -1,0 +1,87 @@
+#header #img_arrondie {
+	width: 50px;
+    height: 50px;
+    margin:auto;
+    overflow:hidden;
+    border-radius:50px;
+    margin-left: 40%;
+    float: left;
+}
+
+#header {
+	background-color:blue;
+    height:calc(100vh - 75vh);
+}
+
+#header p {
+	font-weight: bold;
+	line-height:50px;
+}
+
+#contenu  {
+	
+	background-color:red;
+    height:calc(100vh - 50vh);
+}
+
+#contenu #img_arrondie {
+	width: 50px;
+    height: 50px;
+    margin:auto;
+    overflow:hidden;
+    border-radius:50px;
+    margin-left: 25%;
+    float: left;
+}
+
+#contenu ul li #img_arrondie {
+	width: 20px;
+    height: 20px;
+    margin:auto;
+    margin-right: 10px;
+    overflow:hidden;
+    border-radius:50px;
+    float: left;
+    border:2px solid black;
+   }
+
+   #contenu ul li {
+   	line-height:20px;
+   }
+
+#contenu ul li:hover {
+	border:2px ridge black;
+	padding: 4px;
+	border-radius: 4px;
+	color: white;
+	background-color: grey;
+	margin-bottom: 10px;
+}
+
+#contenu ul li:active {
+	border:2px ridge black;
+	padding: 3px;
+	border-radius: 3px;
+	color: white;
+	background-color: grey;
+	margin-bottom: 10px;
+}
+
+#contenu p {
+
+	font-weight: bold;
+	margin-left: 30%;
+	font-size: 34px;
+	line-height:50px;
+}
+
+ul {
+	list-style-type: none;
+	margin-left :30%;
+	font-size: 25px;
+}
+
+#footer {
+	 height:calc(100vh - 75vh);
+    background-color:yellow;
+}
