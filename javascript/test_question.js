@@ -1,5 +1,35 @@
 
 //affichage choix question simple
+var valeur="";
+
+
+function valider_reponse() {
+	if(valeur!="") {
+		if(valeur==' Jeter de la vodka') {
+			$("#un").css('background-color','red');
+			$("#trois").css('background-color','#32CD32');
+			$("#trois").css('color','white');
+
+		}
+		else if(valeur==' Souffler') {
+			$("#deux").css('background-color','red');
+			$("#trois").css('background-color','#32CD32');
+			$("#trois").css('color','white');
+
+		}
+		else {
+			$("#trois").css('background-color','#32CD32');
+		}
+
+		$("#b2").css('display','block');
+		$("#suivant").css('display','block');
+
+		$("#un").css('pointer-events','none');
+		$("#deux").css('pointer-events','none');
+		$("#trois").css('pointer-events','none');
+
+	}
+}
 
 $("ul li").click(function (){
 
