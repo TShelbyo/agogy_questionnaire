@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Questionnaire</title>
-    <link rel="icon" type="image/png" href="../pictures/q_agogy.PNG" />
+    <link rel="icon" type="image/png" href="../pictures/agogy_logo.PNG" />
     <link rel="stylesheet" href="../css/style.css" type="text/css" title="style1">
     <script
   src="https://code.jquery.com/jquery-3.4.1.js"
@@ -14,11 +14,17 @@
   </head>
 
   <body>	
-<p>&nbsp Questionnaire incendie</p>
   	<div id="header">
-  		<img id="img_arrondie" src="../pictures/q_agogy.PNG" alt="icone"/>
-		<p>&nbsp Questionnaire incendie</p>
-		<span id="hey"> </span>
+  		<!--<img id="img_arrondie" src="../pictures/q_agogy.PNG" alt="icone"/>-->
+  		<img  id="titre" src="../pictures/titre_questionnaire.PNG" alt="titre"/>
+
+  			<div class="progress-circle thin grey" data-value="40">
+    		<div class="progress-masque">
+    			 <div class="progress-barre"></div>
+    			 <div class="progress-sup50"></div>
+    		</div>
+		</div>
+
   	</div>
 
   	<div id="contenu">
@@ -38,6 +44,15 @@
   	</div>
 
   	<div id="footer">
+  	
+		<div id=buttons>
+			<input type="button" name="Valider" value="Valider" id="b1">
+			<input type="button" name="Voir explication" value="Voir explication" id="b2">
+		</div>
+		<img id="logo_agogy" src="../pictures/agogy_logo.PNG" alt="iconeLogo"/>
+		<label>Etape suivante</label>
+		<br><br>
+		<img id="img_arrondie" src="../pictures/flèche.PNG" alt="fleche"/>
   	</div>
  </body>
 
