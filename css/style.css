@@ -10,9 +10,9 @@
 #header #titre {
 	width: 350px;
 	height: 150px;
-	 margin-left: 35%;
-     margin-right: auto;
-     float: left;
+	margin-left: 35%;
+  margin-right: auto;
+  float: left;
 }
 
 #header #img_arrondie {
@@ -28,6 +28,7 @@
 
 #contenu  {
     height:calc(100vh - 50vh);
+    margin-bottom: 10px;
 }
 
 #contenu ul li #img_arrondie {
@@ -58,13 +59,13 @@
 	cursor: pointer;
 }
 
+
 #contenu ul li:active {
 	border:2px ridge black;
 	padding: 3px;
 	border-radius: 3px;
 	color: white;
 	background-color: #D3D3D3;
-	margin-bottom: 10px;
 	cursor: pointer;
 }
 
@@ -83,6 +84,7 @@
 	width: 50px;
     height: 50px;
     margin:auto;
+    margin-bottom: 1px;
     overflow:hidden;
     border-radius:50px;
     border:2px solid black;
@@ -92,6 +94,7 @@
 
 #footer {
 	 height:calc(100vh - 75vh);
+   clear: both;
 }
 
 #footer #logo_agogy {
@@ -149,7 +152,7 @@ ul {
   box-sizing: border-box;         /* prise en compte bordure dans la dimension */
   border-width: .15em;            /* largeur bordure de la gauge */
   border-style: solid;
-  border-color: #FF8C00;
+  border-color: #FF0000;
   border-radius: 50%;             /* rendu aspect circulaire */
   width: 1em;                     /* largeur à 100% */
   height: 1em;                    /* hauteur à 100% */
@@ -160,6 +163,25 @@ ul {
   display: none;
   clip: rect(0, 1em, 1em, .5em);
 }
+
+.progress-circle[data-value^='5']:not([data-value='5']):not([data-value^='5.']) .progress-masque,
+.progress-circle[data-value^='6']:not([data-value='6']):not([data-value^='6.']) .progress-masque,
+.progress-circle[data-value^='7']:not([data-value='7']):not([data-value^='7.']) .progress-masque,
+.progress-circle[data-value^='8']:not([data-value='8']):not([data-value^='8.']) .progress-masque,
+.progress-circle[data-value^='9']:not([data-value='9']):not([data-value^='9.']) .progress-masque,
+.progress-circle[data-value^='100'] .progress-masque {
+  clip: rect(auto, auto, auto, auto);
+}
+
+.progress-circle[data-value^='5']:not([data-value='5']):not([data-value^='5.']) .progress-sup50,
+.progress-circle[data-value^='6']:not([data-value='6']):not([data-value^='6.']) .progress-sup50,
+.progress-circle[data-value^='7']:not([data-value='7']):not([data-value^='7.']) .progress-sup50,
+.progress-circle[data-value^='8']:not([data-value='8']):not([data-value^='8.']) .progress-sup50,
+.progress-circle[data-value^='9']:not([data-value='9']):not([data-value^='9.']) .progress-sup50,
+.progress-circle[data-value^='100'] .progress-sup50 {
+  display:block;
+}
+
 .progress-circle:after {
   content: attr(data-value) "%";  /* récup. valeur de progression */
   font-size: 0.15em;              /* taille de la font en % du parent */
@@ -192,7 +214,7 @@ ul {
 /*buttons du bas de la page*/
 
 #buttons {
-	margin-top:1%;
+	/*margin-top:1%;*/
 	margin-left: 35%;
 	margin-bottom: 1%;
 }
@@ -211,6 +233,7 @@ ul {
 	text-decoration:none;
 	text-shadow:0px 1px 0px #5b8a3c;
 	margin-right: 20px;
+  margin-top: 10px;
 }
 	#buttons #b1:hover {
 	background-color:#32CD32;
@@ -237,6 +260,7 @@ ul {
   display: none;
   float: right;
   margin-right: 60%;
+   margin-top: 10px;
 }
 	#buttons #b2:hover {
 	background-color:#00CED1;

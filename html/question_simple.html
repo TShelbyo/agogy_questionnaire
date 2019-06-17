@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Questionnaire</title>
-    <link rel="icon" type="image/png" href="../pictures/agogy_logo.PNG" />
+    <link rel="icon" type="image/png" href="../pictures/agogy_logo_2.PNG" />
     <link rel="stylesheet" href="../css/style.css" type="text/css" title="style1">
     <script
   src="https://code.jquery.com/jquery-3.4.1.js"
@@ -16,20 +16,21 @@
   <body>	
   	<div id="header">
   		<!--<img id="img_arrondie" src="../pictures/q_agogy.PNG" alt="icone"/>-->
-  		<img  id="titre" src="../pictures/titre_questionnaire.PNG" alt="titre"/>
+  		<img  id="titre" src="../pictures/titre_questionnaire_2.PNG" alt="titre"/>
 
-  			<div class="progress-circle thin grey" data-value="40">
+  			<!-- <div class="progress-circle thin grey" data-value="60">
     		<div class="progress-masque">
     			 <div class="progress-barre"></div>
     			 <div class="progress-sup50"></div>
     		</div>
-		</div>
+		</div> -->
+		<div class="progress-circle" data-value="60"></div>
 
   	</div>
 
   	<div id="contenu">
   		<img id="img_arrondie" src="../pictures/un.PNG" alt="iconeUn"/>
-  		<p>&nbsp Que faut t'il faire pour éteindre un feu ?</p>
+  		<p>&nbsp Que faut-il faire pour éteindre un feu ?</p>
 
   		<ul>
   			<li id="un"> <img id="img_arrondie" src="../pictures/ungris.PNG" alt="iconeUngris" />Jeter de la vodka</li>
@@ -49,13 +50,13 @@
 			<input type="button" name="Valider" value="Valider" id="b1" onclick="valider_reponse()">
 			<input type="button" name="Voir explication" value="Voir explication" id="b2">
 		</div>
-		<img id="logo_agogy" src="../pictures/agogy_logo.PNG" alt="iconeLogo"/>
+		<img id="logo_agogy" src="../pictures/agogy_logo_2.PNG" alt="iconeLogo"/>
 		<div id="suivant">
 			<label >Etape suivante</label>
 			<br><br>
-			<img id="img_arrondie" src="../pictures/flèche.PNG" alt="fleche"/>
+			<a href="./questions_multiples.html"><img id="img_arrondie" src="../pictures/flèche.PNG" alt="fleche" href="../questions_multiples.html"/></a>
 		</div>
   	</div>
  </body>
-
+  <script type="text/javascript" src="../javascript/fonctions_generales.js"></script>
   <script type="text/javascript" src="../javascript/test_question.js"></script>
