@@ -13,34 +13,50 @@
  
   </head>
 
-  <body>	
+  <body >	
   	<div id="header">
   		<img  id="titre" src="../pictures/titre_questionnaire_2.PNG" alt="titre"/>
 
-		<div class="progress-circle" data-value="60"></div>
+		<div class="progress-circle" data-value="70"></div>
 
   	</div>
 
   	<div id="contenu">
-  		<img id="img_arrondie" src="../pictures/un.PNG" alt="iconeUn"/>
-  		<p>&nbsp Que faut-il faire pour éteindre un feu ?</p>
+  		<img id="img_arrondie" src="../pictures/trois.PNG" alt="iconeUn"/>
+  		<p>Reliez les mots ci dessous : </p>
 
-  		<ul>
-  			<li id="un"> <img id="img_arrondie" src="../pictures/ungris.PNG" alt="iconeUngris" />Jeter de la vodka</li>
-  			</br>
-  			<li id="deux"> <img id="img_arrondie" src="../pictures/deuxgris.PNG" alt="iconeDeuxgris"/>Souffler</li>
-  			</br>
-  			<li id="trois"> <img id="img_arrondie" src="../pictures/troisgris.PNG" alt="iconetroisgris"/>Jeter de l'eau</li>
-  		</ul>
+    <div id="contenu_canvas">
 
+      <div id="gauche_relies">
+      <ul>
+      <li id="un"> Coi </li>
+        </br>
+        <li id="deux">Or</li>
+        </br>
+        <li id="trois">Pour</li>
+      </ul> 
+      </div>
 
+       <canvas id='canvas' width='400' height='200' ></canvas>
+
+      <div id="droite_relies">
+        <ul>
+      <li id="un"> ffeur </li>
+        </br>
+        <li id="deux">Nicar</li>
+        </br>
+        <li id="trois">Parlers</li>
+      </ul> 
+      </div>
+    </div>
 
   	</div>
 
   	<div id="footer">
   	
 		<div id=buttons>
-			<input type="button" name="Valider" value="Valider" id="b1" onclick="valider_reponse()">
+			<input type="button" name="Valider" value="Valider" id="b1">
+      <input type="button" name="Restore" value="Effacer" id="b_restore" onclick="restore()">
 			<input type="button" name="Voir explication" value="Voir explication" id="b2">
 		</div>
 		<img id="logo_agogy" src="../pictures/agogy_logo_2.PNG" alt="iconeLogo"/>
@@ -52,4 +68,4 @@
   	</div>
  </body>
   <script type="text/javascript" src="../javascript/fonctions_generales.js"></script>
-  <script type="text/javascript" src="../javascript/test_question.js"></script>
+  <script type="text/javascript" src="../javascript/canvas.js"></script>
