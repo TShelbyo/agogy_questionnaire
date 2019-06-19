@@ -1,3 +1,7 @@
+    /*5 du verifDoubleTrait à changer pas automatisé*/
+
+    //refaire verifDoubleTrait avec valeur Bdd (pas avec distance) 
+
     var canvas,
     context,
     dragging = false,
@@ -7,6 +11,7 @@
     array_pt_debut=new Array(3),
     array_pt_fin=new Array(3),
     i=0,
+    j=0,
     t=0;
 
 
@@ -77,6 +82,7 @@ function clear_last_trait(champ) {
 
 	if(t>0)
 	t--;
+
 }
 
 function afficher_trait() {
@@ -89,6 +95,32 @@ function afficher_trait() {
 
 
 	console.log('t :'+t);
+}
+
+function verifDoubleTraitDebut() {
+	var l=0;
+
+	for(var b=0;b<t;b++) {
+		console.log(dragStartLocation.y +','+array_pt_debut[b].y);
+		console.log('aya');
+		if(dragStartLocation.y-array_pt_debut[b].y<=5) {
+			dragging=false;
+		}
+	}
+
+}
+
+
+function verifDoubleTraitFin() {
+	var l=0;
+
+	for(var b=0;b<t;b++) {
+		//console.log(dragStartLocation.y +','+array_pt_fin[b].y);
+		if(dragEndLocation.y-array_pt_fin[b].y<=7) {
+			l=1;
+		}
+	}
+	return l;
 }
 
 function restore() {
@@ -104,19 +136,25 @@ $("#gauche_relies ul li").click(function (){
 	   dragging = true;
     takeSnapshot();
 	dragStartLocation = getCanvasCoordinates(event);
-	array_pt_debut[t]=dragStartLocation;
+	verifDoubleTraitDebut();
+	if(dragging===true) {
 
+		array_pt_debut[t]=dragStartLocation;
+	}
 });
 
 $("#droite_relies ul li").mouseup(function (){
 	dragging = false;
     restoreSnapshot();
     dragEndLocation = getCanvasCoordinates(event);
-    i++;
-    array_pt_fin[t]=dragEndLocation;
-    drawLine(dragEndLocation);
-  
-	t++;
+    //j=verifDoubleTraitFin();
+    //if(j!=1) {
+    	array_pt_fin[t]=dragEndLocation;
+    	drawLine(dragEndLocation);
+    	i++;
+    	t++;
+	//}  
 	
-	console.log('x:'+ dragEndLocation.x+', y:'+dragEndLocation.y);
+	
+	console.log('i:'+ i);
 });
