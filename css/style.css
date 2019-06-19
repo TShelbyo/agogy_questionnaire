@@ -11,8 +11,7 @@
     width: 350px;
     height: 150px;
     margin-left: 35%;
-  margin-right: auto;
-  float: left;
+    margin-right: auto;
 }
 
 #header #img_arrondie {
@@ -334,4 +333,45 @@ ul {
 }
 
 #droite_relies {
+}
+
+/*Menu*/
+
+body{
+    margin:0;   
+}
+
+#header nav {
+   margin: auto;
+}
+ 
+nav
+{
+    top: 0;
+    width: 100%;
+    background : #FF4500;
+    margin: 0; padding: 0;
+    color: black;
+    text-align: center;
+}
+#menu{
+    margin:0;
+}
+#menu li
+ {
+    display: inline; 
+    list-style: none;
+}
+ 
+#menu li a
+{
+    display:inline-block;
+    /*margin: 30px;*/
+    color : white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul#menu li a:hover {
+    background-color: #808080;
 }
