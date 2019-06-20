@@ -1,4 +1,5 @@
 <?php
+
 	include("bdd.php");
 
 	function console_log( $data ){

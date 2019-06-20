@@ -13,8 +13,7 @@ function connectionDbLocalhost($nomBdd) {
 	return $bdd;
 }
 
-
-function connectionDb($chemin,$nomBdd,$user,$mdp) {
+function connecionDb($chemin,$nomBdd,$user,$mdp) {
 
 	try {
 
@@ -25,6 +24,7 @@ function connectionDb($chemin,$nomBdd,$user,$mdp) {
 
 	return $bdd;
 }
+
 
 function display_module($bdd) {
 	$reponse = $bdd->query('SELECT id_module, nom_module FROM module ORDER BY nom_module');
@@ -65,6 +65,13 @@ function display_type_question($bdd) {
 function prepared_queries_questionnaire_insertion($bdd) {
 
 	$req=$bdd->prepare('INSERT INTO questionnaire(nom_questionnaire) VALUES(:nom_questionnaire)');
+=======
+function prepared_queries_artist_insertion($bdd) {
+
+	$req=$bdd->prepare('INSERT INTO artiste(nom_artiste,compte_instagram,compte_spotify,compte_youtube,nationalite) VALUES(:nom,:instagram,:spotify,:youtube,:nationalite)');
+
+	return $req;
+}
 
 	return $req;
 }
