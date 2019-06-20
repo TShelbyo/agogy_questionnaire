@@ -11,8 +11,7 @@
     width: 350px;
     height: 150px;
     margin-left: 35%;
-  margin-right: auto;
-  float: left;
+    margin-right: auto;
 }
 
 #header #img_arrondie {
@@ -124,7 +123,7 @@
     margin-right: 2%;
 }
 
-label {
+label #etape_suivante {
     float: right;
     color: grey;
 }
@@ -335,3 +334,97 @@ ul {
 
 #droite_relies {
 }
+
+/*#insertion {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}*/
+
+/*Menu*/
+
+body{
+    margin:0;   
+}
+
+#header nav {
+   margin: auto;
+}
+ 
+nav
+{
+    top: 0;
+    width: 100%;
+    background : #FF4500;
+    margin: 0; padding: 0;
+    color: black;
+    text-align: center;
+}
+#menu{
+    margin:0;
+    margin-bottom: 10%;
+}
+#menu li
+ {
+    display: inline; 
+    list-style: none;
+}
+ 
+#menu li a
+{
+    display:inline-block;
+    /*margin: 30px;*/
+    color : white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul#menu li a:hover {
+    background-color: #808080;
+}
+
+form {
+  margin-top: 7%;
+  margin-left: 5%;
+}
+
+#module {
+  display: flex;
+   flex-direction: row;
+}
+
+#new_module {
+  display: none;
+}
+#question {
+  display: flex;
+   flex-direction: row;
+/*  justify-content: space-between;*/
+}
+
+#question_liste {
+  display: flex;
+  flex-direction: column;
+/*  justify-content: space-between;*/
+}
+
+#new_question {
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  height: 10px;
+/*  justify-content: space-between;*/
+}
+
+#new_question_reponse {
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
+
+#reponse {
+  display: flex;
+  flex-direction: row;
+  /*display: none;
+}
+*/

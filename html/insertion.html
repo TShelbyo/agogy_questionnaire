@@ -1,0 +1,121 @@
+<!DOCTYPE html">
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Questionnaire</title>
+    <link rel="icon" type="image/png" href="../pictures/agogy_logo_2.PNG" />
+    <link rel="stylesheet" href="../css/style.css" type="text/css" title="style1">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script> 
+  
+  </head>
+  <body>
+    <div id="insertion">
+     <div id="header">
+          <img  id="titre" src="../pictures/titre_questionnaire_2.PNG" alt="titre"/>
+      <nav>
+       <ul id="menu"> 
+            <li><a href="#">Créer questionnaire</a></li>
+            <li><a href="#">Modifier questionnaire existant</a></li>
+            <li><a href="#">Choisir questionnaire</a></li>
+       </ul>
+      </nav>
+     </div>
+
+      <div id="contenu">
+        <form action= "<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="application/x-www-form-urlencoded" name="insertion_questionnaire">
+          <label> Nom questionnaire :</label>
+          <input type="text" name="nom_questionnaire" placeholder = "Nom questionnaire">
+          <br>
+
+          <div id=module>
+
+          <label>Module : </label>
+
+          <select name="module_liste">
+
+          <?php
+            display_module($bdd);
+          ?>
+
+        </select>
+
+        <input type="button" name="ajouter_module" value="Ajouter module" id="b_ajout_module" onclick="new_module()">
+        <div id="new_module">
+          <input type="text" name="nom_module" placeholder = "Nom module" id="nouveau_module">
+          <input type="submit" name="valider_module" value="Valider" id="valider_module">
+        </div>
+        </div>
+        </br>
+
+        <div id="question">
+
+          <label>Question :</label>
+
+          <ul id="question_liste">
+
+            <?php
+              display_questions($bdd);
+            ?>  
+
+          </ul>
+
+          <div id=new_question>
+            <input type="button" name="ajouter_question" value="Ajouter question" id="b_ajout_question" onclick="f_new_question()">
+
+            <div id="new_question_reponse">
+              <input type="text" name="nom_module" placeholder = "Remplir question" id="nouvelle_question">
+              <div id="type_question">
+                <label>Type question :<label>
+
+                <select name="type_question">
+                
+                  <?php
+                    display_type_question($bdd);
+                  ?>
+
+                </select>
+              </div>
+
+              <label>Ajouter réponses </label>
+
+              <div id="reponse_liste">
+
+                <div id="reponse">
+                  <input type="checkbox" id="checkbox1" name="checkbox1" value="checkbox1">
+                  <input type="text" name="nom_reponse" placeholder = "Remplir reponse">
+                </div>
+
+                <div id="reponse">
+                  <input type="checkbox" id="checkbox2" name="checkbox2" value="checkbox2">
+                  <input type="text" name="nom_reponse2" placeholder = "Remplir reponse">
+                </div>
+
+              </div>
+
+              <input type="button" name="ajouter_reponse" value="Ajouter réponse" id="ajouter_reponse" onclick="f_ajouter_reponse()">
+
+
+              <input type="submit" name="valider_reponse" value="Valider" id="valider_reponse">
+
+            </div>
+          </div>
+
+        </div>
+           <input type="submit" name="valider_questionnaire" value="Valider" id="valider_questionnaire">
+        </form>
+      </div>
+
+      <div id="footer">
+
+      </div>
+
+    </div>
+
+  </body>
+
+  <script type="text/javascript" src="../javascript/fonctions_generales.js"></script>
+  <script type="text/javascript" src="../javascript/insertion.js"></script>
+
