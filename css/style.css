@@ -416,6 +416,11 @@ form {
 /*  justify-content: space-between;*/
 }
 
+#b_ajout_question {
+  /*flex-wrap:wrap;*/
+  height: 20px;
+}
+
 #new_question_reponse {
   display: flex;
   flex-direction: column;
