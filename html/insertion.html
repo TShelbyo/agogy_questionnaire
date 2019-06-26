@@ -54,10 +54,11 @@
           <label>Question :</label>
 
           <ul id="question_liste" class="question_liste2">
-
-            <?php
-              display_questions($bdd);
-            ?>  
+            <div id=affichage_question>
+              <?php
+                 display_questions($bdd);
+              ?> 
+            </div> 
 
           </ul>
 

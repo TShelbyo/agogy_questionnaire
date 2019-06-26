@@ -8,7 +8,7 @@
   	echo '</script>';
 }
 
-	$bdd=connectionDbLocalhost('agogy_questionnaire');
+
 
 	if(!empty($_POST['nom_questionnaire']) && !empty($_POST['tab1'])) {
 		$nom_questionnaire=$_POST['nom_questionnaire'];

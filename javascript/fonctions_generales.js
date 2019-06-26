@@ -12,12 +12,11 @@ function click_bleu(champ) {
 }
 
 
-function initialiser_padding() {
+function initialiser_padding(champ) {
 
-	$("#un").css('padding','10px');
-	$("#deux").css('padding','10px');
-	$("#trois").css('padding','10px');
-	$("#quatre").css('padding','10px');
+  for(var i=0;i<champ;i++) {
+	 $("#"+i).css('padding','10px');
+  }
 }
 
 function click_couleur(champ) {

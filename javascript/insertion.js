@@ -4,7 +4,7 @@ var tab=new Array(x);
 var tab_resultat=new Array(x);
 var m=$('.l_reponse #reponse').length;
 
-//initialisation tableau
+//initialisation------------------------------------------------------------------
 
 for(var i=1;i<=x;i++) {
 	tab[i]=0;
@@ -13,6 +13,10 @@ for(var i=1;i<=x;i++) {
 for(var i=0;i<x;i++) {
 	tab_resultat[i]=0;
 }
+
+initialiser_padding(x);
+
+//------------------------------------------------------------------------------------
 
 function new_module() {
 
@@ -44,21 +48,24 @@ function f_ajouter_reponse() {
 
 
 $("#question_liste li").click(function (){
-	
+
 valeur = new String($(this).val());
 var index = $("ul li").index(this);
 index=index-2; //a modifier car commence à 3
 
 tab[index]++;
-tab[index]=tab[index]%2;
+
+initialiser_padding(x);
+
 if(tab[index]==1) {
 	tab_resultat[index]=valeur;
+	click_couleur(index-1); //modifier aussi
 }
 else {
 	tab_resultat[index]=0;
+	click_suppr_couleur(index-1);
 }
 
-console.log(tab[index]);
 });
 
 function ajouter_new_module() {
@@ -68,10 +75,11 @@ function ajouter_new_module() {
 		   type: "POST", 
 		   url: "../php/insertion.php", 
 		   data: {nom_nouveau_module : nom_module}, 
-		  success: function(data) { 
-				alert(data);
-			} 
 		});
+
+		 $('#id_module').load('../php/bdd.php', {
+		 	nouveau_module :$('#i_nom_module').val()
+		 });
 }
 
 function ajouter_new_question() {
@@ -84,14 +92,13 @@ function ajouter_new_question() {
 		   type: "POST", 
 		   url: "../php/insertion.php", 
 		   data: {nom_nouvelle_question : nom_question, fk_type_question : type_question, num_module1 : module_liste1}, 
-		  success: function(data) { 
-				alert(data);
-			} 
 		});
 
 		ajouter_new_reponse();
 
-		//window.location.reload(true);
+		 $('#affichage_question').load('../php/bdd.php', {
+		 	module_liste :$('#id_module').val()
+		 });
 }
 
 function ajouter_new_reponse() {
@@ -118,16 +125,13 @@ function ajouter_new_reponse() {
 		}
 	}
 
-for(var g=0;g<i;g++) {
-	$.ajax({ 
-		   type: "POST", 
-		   url: "../php/insertion.php", 
-		   data: {tab_reponse : tab[g], tab_checkbox : tab_checkbox[g]}, 
-		  success: function(data) { 
-				alert(data);
-			} 
-		});
-}
+	for(var g=0;g<i;g++) {
+		$.ajax({ 
+			   type: "POST", 
+		 	   url: "../php/insertion.php", 
+		   	   data: {tab_reponse : tab[g], tab_checkbox : tab_checkbox[g]}, 
+			});
+	}
 
 }
 
@@ -136,37 +140,35 @@ function test() {
 	var j=0;
 	var nom_questionnaire=document.getElementById('i_nom_questionnaire').value;
 
-for(var i=1;i<=tab_resultat.length;i++) {
-	if(tab_resultat[i]!=0) {
-		console.log(j);
-		tab_questions[j]=tab_resultat[i];
-		j++;
+	for(var i=1;i<=tab_resultat.length;i++) {
+		if(tab_resultat[i]!=0) {
+			tab_questions[j]=tab_resultat[i];
+			j++;
+		}
+
 	}
 
+	$.ajax({ 
+		type: "POST", 
+		url: "../php/insertion.php", 
+		data: {nom_questionnaire : nom_questionnaire, tab1 : tab_questions}, 
+	});
 }
-		$.ajax({ 
-		   type: "POST", 
-		   url: "../php/insertion.php", 
-		   data: {nom_questionnaire : nom_questionnaire, tab1 : tab_questions}, 
-		  success: function(data) { 
-				alert(data);
-			} 
-		});
-}
-
-
 
 $("#module select").change(function(){
 
- var nom_module_liste=document.getElementById('id_module').value;
- 		alert(nom_module_liste);
-		$.ajax({ 
-		   type: "POST", 
-		   url: "../php/insertion.php", 
-		   data: {module_liste1 : nom_module_liste}, 
-		  success: function(data) { 
-				alert(data);
-			} 
-		});
-	//window.location.reload(true);
+		var val=$('#id_module').val();
+
+		 $('#affichage_question').load('../php/bdd.php', {
+		 	module_liste :$('#id_module').val()
+		 });
+
+		 setTimeout(suiteTraitement, 10000);
  });
+
+function suiteTraitement()
+{
+	var x=$('.question_liste2 li').length;
+	console.log(x);
+	initialiser_padding(x);
+}

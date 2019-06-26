@@ -1,5 +1,22 @@
 <?php
 
+$bdd=connectionDbLocalhost('agogy_questionnaire');	
+
+//---------------------------------------------------------------------
+
+	//affichage questions lors du changement de module
+
+	if(!empty($_POST['module_liste'])) {
+		display_questions($bdd);
+	} 
+
+	//affichage modules lors d'un ajout_module
+	if(!empty($_POST['nouveau_module'])) {
+		display_module($bdd);
+	} 
+
+//------------------------------------------------------------------------
+
 function connectionDbLocalhost($nomBdd) {
 
 	try {
@@ -39,28 +56,27 @@ function display_module($bdd) {
 }
 
 function display_questions($bdd) {
+	$i=0;
 
-	if(!empty($_POST['module_liste1'])) {
-			echo "tyuiokjh";
-		$nom_module=$_POST['module_liste1'];
-		echo $nom_module;
-		$reponse = $bdd->query('SELECT id_question, nom_question FROM question JOIN module_question ON id_question=fk_question where fk_module='+$nom_module+')');
-	}
-	else {
+	if(!empty($_POST['module_liste'])) {
+
+	$module_liste=$_POST['module_liste'];
+$reponse = $bdd->query("SELECT id_question, nom_question FROM question JOIN module_question ON question.id_question=module_question.fk_question where fk_module=".$module_liste);}
+else {
 		$reponse = $bdd->query('SELECT id_question, nom_question FROM question JOIN module_question ON id_question=fk_question where fk_module=(select id_module from module where nom_module="Incendie")');
-	}
-//}
+}
 
 	while ($donnees = $reponse->fetch()) {
-		echo '<li value="'.$donnees['id_question'].'">'.$donnees['nom_question'];
+		echo '<li id='.$i.' value="'.$donnees['id_question'].'">'.$donnees['nom_question'];
 		echo '</li>';
+		$i++;
 	}
 
 	$reponse->closeCursor();
 
 }
 
-function display_type_question($bdd,$num_module) {
+function display_type_question($bdd) {
 	
 		$reponse = $bdd->query('SELECT id_type_question, nom_type_question FROM type_question');
 
