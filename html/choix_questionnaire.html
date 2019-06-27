@@ -1,0 +1,42 @@
+<!DOCTYPE html">
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Questionnaire</title>
+    <link rel="icon" type="image/png" href="../pictures/agogy_logo_2.PNG" />
+    <link rel="stylesheet" href="../css/style.css" type="text/css" title="style1">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script> 
+  
+  </head>
+
+  <body>
+
+         <div id="header">
+          <img  id="titre" src="../pictures/titre_questionnaire_2.PNG" alt="titre"/>
+      <nav>
+       <ul id="menu"> 
+            <li><a href="../php/insertion.php">Créer questionnaire</a></li>
+            <li><a href="#">Modifier questionnaire existant</a></li>
+            <li><a href="#">Choisir questionnaire</a></li>
+       </ul>
+      </nav>
+     </div>
+
+      <div id="contenu">
+        <h2 id="titre_choix_questionnaire"> Choississez votre questionnaire <h2>
+
+          <ul id="questionnaire_liste" class="questionnaire_liste2">
+              <div id=affichage_questionnaire>
+                <?php
+                  display_questionnaire($bdd);
+                ?> 
+              </div> 
+          </ul>
+      </div>
+  <body>
+
+  <script type="text/javascript" src="../javascript/fonctions_generales.js"></script>
+  <script type="text/javascript" src="../javascript/choix_questionnaire.js"></script>

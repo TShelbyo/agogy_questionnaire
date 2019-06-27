@@ -19,23 +19,22 @@
        <ul id="menu"> 
             <li><a href="#">Créer questionnaire</a></li>
             <li><a href="#">Modifier questionnaire existant</a></li>
-            <li><a href="#">Choisir questionnaire</a></li>
+            <li><a href="../php/choix_questionnaire.php">Choisir questionnaire</a></li>
        </ul>
       </nav>
      </div>
 
       <div id="contenu">
-        <form action= "<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="application/x-www-form-urlencoded" name="insertion_questionnaire">
+        <form action= "<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="application/x-www-form-urlencoded" name="insertion_questionnaire" id="form">
           <label> Nom questionnaire :</label>
-          <input type="text" name="nom_questionnaire" placeholder = "Nom questionnaire">
+          <input type="text" name="nom_questionnaire" placeholder = "Nom questionnaire" id="i_nom_questionnaire">
           <br>
 
           <div id=module>
 
           <label>Module : </label>
 
-          <select name="module_liste">
-
+          <select name="module_liste" id="id_module" class="c_module_liste">
           <?php
             display_module($bdd);
           ?>
@@ -44,8 +43,8 @@
 
         <input type="button" name="ajouter_module" value="Ajouter module" id="b_ajout_module" onclick="new_module()">
         <div id="new_module">
-          <input type="text" name="nom_module" placeholder = "Nom module" id="nouveau_module">
-          <input type="submit" name="valider_module" value="Valider" id="valider_module">
+          <input type="text" name="nom_nouveau_module" placeholder = "Nom module" id="i_nom_module">
+          <input type="button" name="valider_module" value="Valider" id="valider_module" onclick="ajouter_new_module()">
         </div>
         </div>
         </br>
@@ -54,11 +53,12 @@
 
           <label>Question :</label>
 
-          <ul id="question_liste">
-
-            <?php
-              display_questions($bdd);
-            ?>  
+          <ul id="question_liste" class="question_liste2">
+            <div id=affichage_question>
+              <?php
+                 display_questions($bdd);
+              ?> 
+            </div> 
 
           </ul>
 
@@ -66,11 +66,12 @@
             <input type="button" name="ajouter_question" value="Ajouter question" id="b_ajout_question" onclick="f_new_question()">
 
             <div id="new_question_reponse">
-              <input type="text" name="nom_module" placeholder = "Remplir question" id="nouvelle_question">
+              <label>Question : </label>
+              <input type="text" name="nom_question" placeholder = "Remplir question" id="i_nouvelle_question">
               <div id="type_question">
                 <label>Type question :<label>
 
-                <select name="type_question">
+                <select name="type_question" id="i_type_question">
                 
                   <?php
                     display_type_question($bdd);
@@ -81,16 +82,16 @@
 
               <label>Ajouter réponses </label>
 
-              <div id="reponse_liste">
+              <div id="reponse_liste" class="l_reponse">
 
                 <div id="reponse">
-                  <input type="checkbox" id="checkbox1" name="checkbox1" value="checkbox1">
-                  <input type="text" name="nom_reponse" placeholder = "Remplir reponse">
+                  <input type="checkbox" name="checkbox1" id='c0'>
+                  <input type="text" name="nom_reponse" placeholder = "Remplir reponse" id="r0">
                 </div>
 
                 <div id="reponse">
-                  <input type="checkbox" id="checkbox2" name="checkbox2" value="checkbox2">
-                  <input type="text" name="nom_reponse2" placeholder = "Remplir reponse">
+                  <input type="checkbox" name="checkbox2" id="c1">
+                  <input type="text" name="nom_reponse2" placeholder = "Remplir reponse" id="r1">
                 </div>
 
               </div>
@@ -98,13 +99,14 @@
               <input type="button" name="ajouter_reponse" value="Ajouter réponse" id="ajouter_reponse" onclick="f_ajouter_reponse()">
 
 
-              <input type="submit" name="valider_reponse" value="Valider" id="valider_reponse">
+              <input type="button" name="valider_reponse" value="Valider" id="valider_reponse" onclick="ajouter_new_question()">
 
             </div>
           </div>
 
         </div>
-           <input type="submit" name="valider_questionnaire" value="Valider" id="valider_questionnaire">
+           <input type="button" name="valider_questionnaire" value="Valider" id="valider_questionnaire" onclick="test()">
+
         </form>
       </div>
 

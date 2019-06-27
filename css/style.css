@@ -349,6 +349,16 @@ body{
 
 #header nav {
    margin: auto;
+    clear: both;
+}
+
+#titre_choix_questionnaire {
+  margin-top: 5%;
+  text-align: center;
+}
+
+#questionnaire_liste {
+ margin-left:40%;
 }
  
 nav
@@ -414,6 +424,11 @@ form {
   flex-wrap:wrap;
   height: 10px;
 /*  justify-content: space-between;*/
+}
+
+#b_ajout_question {
+  /*flex-wrap:wrap;*/
+  height: 20px;
 }
 
 #new_question_reponse {
