@@ -2,7 +2,6 @@
 
 include("bdd.php");
 
-include("../html/generation_questionnaire.html");  
-
+include("../html/generation_questionnaire.html"); 
 
 ?>

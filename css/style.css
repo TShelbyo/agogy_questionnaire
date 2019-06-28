@@ -14,39 +14,10 @@
     margin-right: auto;
 }
 
-#header #img_arrondie {
-    width: 50px;
-    height: 50px;
-    margin:auto;
-    overflow:hidden;
-    border-radius:50px;
-    border:2px solid black;
-    margin-left: 40%;
-    float: left;
-}
-
 #contenu  {
     height:calc(100vh - 50vh);
     margin-bottom: 10px;
 }
-
-#contenu_canvas {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#contenu ul li #img_arrondie {
-    width: 20px;
-    height: 20px;
-    margin:auto;
-    margin-right: 10px;
-    overflow:hidden;
-    border-radius:50px;
-    float: left;
-    border:2px solid black;
-   }
-
 
    #contenu #questions {
     margin-left: 30%;
@@ -134,214 +105,6 @@ ul {
     font-size: 25px;
 }
 
-/*jauge circulaire*/
-
-.progress-circle{
-  position: relative;             /* pour servir de référent */
-  box-sizing: border-box;         /* prise en compte bordure dans la dimension */
-  font-size: 6em;                 /* pour définir les dimensions */
-  width: 1em;                     /* fixe la largeur */
-  height: 1em;                    /* fixe la hauteur */
-  border-radius: 50%;             /* rendu aspect circulaire */
-  border: .15em solid #CDE;       /* couleur de fond de l'anneau */
-  background-color: #FAF0E6;         /* couleur de fond de la progress bar */
-  float: right;
-}
-
-.progress-masque {
-  position: absolute;
-  width: 1em;                     /* 100% de la largeur */
-  height: 1em;                    /* 100% de la hauteur */
-  left: -.15em;                   /* décalage de la largeur bordure de la gauge */
-  top: -.15em;                    /* décalage de la largeur bordure de la gauge */
-  clip: rect(0, 1em, 1em, .5em);  /* par défaut seule la partie droite est visible */*
-}
-
-.progress-barre,
-.progress-sup50 {
-  position: absolute;
-  box-sizing: border-box;         /* prise en compte bordure dans la dimension */
-  border-width: .15em;            /* largeur bordure de la gauge */
-  border-style: solid;
-  border-color: #FF0000;
-  border-radius: 50%;             /* rendu aspect circulaire */
-  width: 1em;                     /* largeur à 100% */
-  height: 1em;                    /* hauteur à 100% */
-  clip: rect(0, .5em, 1em, 0);    /* on ne garde que la partie gauche */
-}
-
-.progress-sup50 {
-  display: none;
-  clip: rect(0, 1em, 1em, .5em);
-}
-
-.progress-circle[data-value^='5']:not([data-value='5']):not([data-value^='5.']) .progress-masque,
-.progress-circle[data-value^='6']:not([data-value='6']):not([data-value^='6.']) .progress-masque,
-.progress-circle[data-value^='7']:not([data-value='7']):not([data-value^='7.']) .progress-masque,
-.progress-circle[data-value^='8']:not([data-value='8']):not([data-value^='8.']) .progress-masque,
-.progress-circle[data-value^='9']:not([data-value='9']):not([data-value^='9.']) .progress-masque,
-.progress-circle[data-value^='100'] .progress-masque {
-  clip: rect(auto, auto, auto, auto);
-}
-
-.progress-circle[data-value^='5']:not([data-value='5']):not([data-value^='5.']) .progress-sup50,
-.progress-circle[data-value^='6']:not([data-value='6']):not([data-value^='6.']) .progress-sup50,
-.progress-circle[data-value^='7']:not([data-value='7']):not([data-value^='7.']) .progress-sup50,
-.progress-circle[data-value^='8']:not([data-value='8']):not([data-value^='8.']) .progress-sup50,
-.progress-circle[data-value^='9']:not([data-value='9']):not([data-value^='9.']) .progress-sup50,
-.progress-circle[data-value^='100'] .progress-sup50 {
-  display:block;
-}
-
-.progress-circle:after {
-  content: attr(data-value) "%";  /* récup. valeur de progression */
-  font-size: 0.15em;              /* taille de la font en % du parent */
-  height: 100%;                   /* centrage dans le parent */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  /*-- pour effet shadow intérieur --*/
-  border-radius: 50%;
-  box-shadow: 0 0 .5em rgba(0, 0, 0, .5) inset;
-}
-
-.progress-circle.grey {
-  color: #C0C0C0;
-  font-style: italic;
-}
-
-.progress-circle.thin,
-.progress-circle.thin .progress-barre,
-.progress-circle.thin .progress-sup50 {
-  border-width: .075em;           /* largeur bordure de la gauge */
-}
-.progress-circle.thin .progress-masque {
-  left: -.075em;                  /* largeur bordure gauge */
-  top: -.075em;                   /* largeur bordure gauge */
-}
-
-
-/*buttons du bas de la page*/
-
-#buttons {
-    /*margin-top:1%;*/
-    margin-left: 35%;
-    margin-bottom: 1%;
-}
-
-#buttons #b1  {
-    background-color:#77b55a;
-    border-radius:4px;
-    border:1px solid #4b8f29;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:13px;
-    font-weight:bold;
-    padding:12px 24px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #5b8a3c;
-    margin-right: 20px;
-  margin-top: 10px;
-}
-    #buttons #b1:hover {
-    background-color:#32CD32;
-}
-#buttons #b1:active {
-    position:relative;
-    top:1px;
-}
-
-#buttons #b_restore {
-    background-color:#FF8C00;
-    border-radius:4px;
-    border:1px solid #FFA500;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:13px;
-    font-weight:bold;
-    padding:12px 24px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #5b8a3c;
-}
-
- #buttons #b_restore:hover {
-    background-color:#FF4500;
-  }
-
-  #buttons #b_restore:active {
-    position:relative;
-    top:1px;
-}
-
-#buttons #b2  {
-
-    background-color:#00BFFF;
-    border-radius:4px;
-    border:1px solid #1E90FF;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:13px;
-    font-weight:bold;
-    padding:12px 24px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #5b8a3c;
-  display: none;
-  float: right;
-  margin-right: 60%;
-   margin-top: 10px;
-}
-    #buttons #b2:hover {
-    background-color:#00CED1;
-}
-#buttons #b2:active {
-    position:relative;
-    top:1px;
-}
-
-#suivant {
-  display: none;
-}
-
-#suivant #img_arrondie:hover {
-  position:relative;
-  top:1px;
-  cursor: pointer;
-}
-
-#suivant #img_arrondie:active {
-  position:relative;
-  top:1px;
-  cursor: pointer;
-}
-
-
-/*Canvas*/
-
-#gauche_relies {
-}
-
-#canvas {
-  border: 2px solid orange;
-  margin-left: 2%;
-}
-
-#droite_relies {
-}
-
-/*#insertion {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}*/
-
-/*Menu*/
 
 body{
     margin:0;   
@@ -440,6 +203,153 @@ form {
 #reponse {
   display: flex;
   flex-direction: row;
-  /*display: none;
+  display: none;
 }
-*/
+
+
+
+
+/*------------------------------------------------------------------------------------------------------*/
+
+
+#contenu_canvas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#header #img_arrondie {
+    width: 50px;
+    height: 50px;
+    margin:auto;
+    overflow:hidden;
+    border-radius:50px;
+    border:2px solid black;
+    margin-left: 40%;
+    float: left;
+}
+#contenu ul li #img_arrondie {
+    width: 20px;
+    height: 20px;
+    margin:auto;
+    margin-right: 10px;
+    overflow:hidden;
+    border-radius:50px;
+    float: left;
+    border:2px solid black;
+   }
+
+
+
+/*buttons du bas de la page*/
+
+#buttons {
+    /*margin-top:1%;*/
+    margin-left: 35%;
+    margin-bottom: 1%;
+}
+
+#buttons #b1  {
+    background-color:#77b55a;
+    border-radius:4px;
+    border:1px solid #4b8f29;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:13px;
+    font-weight:bold;
+    padding:12px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #5b8a3c;
+    margin-right: 20px;
+  margin-top: 10px;
+}
+    #buttons #b1:hover {
+    background-color:#32CD32;
+}
+#buttons #b1:active {
+    position:relative;
+    top:1px;
+}
+
+#buttons #b_restore {
+    background-color:#FF8C00;
+    border-radius:4px;
+    border:1px solid #FFA500;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:13px;
+    font-weight:bold;
+    padding:12px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #5b8a3c;
+}
+
+ #buttons #b_restore:hover {
+    background-color:#FF4500;
+  }
+
+  #buttons #b_restore:active {
+    position:relative;
+    top:1px;
+}
+
+#buttons #b2  {
+
+    background-color:#00BFFF;
+    border-radius:4px;
+    border:1px solid #1E90FF;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:13px;
+    font-weight:bold;
+    padding:12px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #5b8a3c;
+  display: none;
+  float: right;
+  margin-right: 60%;
+   margin-top: 10px;
+}
+    #buttons #b2:hover {
+    background-color:#00CED1;
+}
+#buttons #b2:active {
+    position:relative;
+    top:1px;
+}
+#suivant {
+  display: none;
+}
+
+#suivant #img_arrondie:hover {
+  position:relative;
+  top:1px;
+  cursor: pointer;
+}
+
+#suivant #img_arrondie:active {
+  position:relative;
+  top:1px;
+  cursor: pointer;
+}
+
+
+/*Canvas*/
+
+#gauche_relies {
+}
+
+#canvas {
+  border: 2px solid orange;
+  margin-left: 2%;
+}
+
+#droite_relies {
+}
+
+/*--------------------------------------------------------------------------------------------------------------*/

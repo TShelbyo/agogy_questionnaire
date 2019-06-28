@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <title>Questionnaire</title>
     <link rel="icon" type="image/png" href="../pictures/agogy_logo_2.PNG" />
-    <link rel="stylesheet" href="../css/style.css" type="text/css" title="style1">
+    <link rel="stylesheet" href="../css/style.css" type="text/css" title="style">
+     <link rel="stylesheet" href="../css/jauge.css" type="text/css" title="style_jauge">
     <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -29,14 +30,13 @@
         <h2 id="titre_choix_questionnaire"> <h2>
 
           <ul id="question_liste" class="question_liste2">
-              <div id=affichage_question_questionnaire>
-                <?php
-                  display_questions_questionnaire($bdd);
-                ?> 
-              </div> 
+                <?php 
+                  display_questions_questionnaire($bdd,$_GET['fk_questionnaire']);
+                ?>s
           </ul>
       </div>
   <body>
 
   <script type="text/javascript" src="../javascript/fonctions_generales.js"></script>
+  <script type="text/javascript" src="../javascript/choix_questionnaire.js"></script>
   <script type="text/javascript" src="../javascript/generation_questionnaire.js"></script>

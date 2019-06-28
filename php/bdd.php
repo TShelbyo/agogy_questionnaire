@@ -16,11 +16,6 @@ $bdd=connectionDbLocalhost('agogy_questionnaire');
 		display_module($bdd);
 	}  
 
-	if(!empty($_POST['fk_questionnaire'])) {
-		echo $_POST['fk_questionnaire'];
-		$fk_questionnaire=$_POST['fk_questionnaire'];
-		display_questions_questionnaire($bdd,$fk_questionnaire);
-	}
 //------------------------------------------------------------------------
 
 function connectionDbLocalhost($nomBdd) {
@@ -67,13 +62,13 @@ function display_questions($bdd) {
 	if(!empty($_POST['module_liste'])) {
 
 	$module_liste=$_POST['module_liste'];
-$reponse = $bdd->query("SELECT id_question, nom_question FROM question JOIN module_question ON question.id_question=module_question.fk_question where fk_module=".$module_liste);}
-else {
-		$reponse = $bdd->query('SELECT id_question, nom_question FROM question JOIN module_question ON id_question=fk_question where fk_module=(select id_module from module where nom_module="Incendie")');
-}
+	$reponse = $bdd->query('SELECT id_question, nom_question, nom_type_question FROM question JOIN module_question ON id_question=fk_question JOIN type_question ON question.fk_type_question=type_question.id_type_question where fk_module='.$module_liste);}
+	else {
+		$reponse = $bdd->query('SELECT id_question, nom_question, nom_type_question FROM question JOIN module_question ON id_question=fk_question JOIN type_question ON question.fk_type_question=type_question.id_type_question where fk_module=(select id_module from module where nom_module="Incendie")');
+	}
 
 	while ($donnees = $reponse->fetch()) {
-		echo '<li id='.$i.' value="'.$donnees['id_question'].'">'.$donnees['nom_question'];
+		echo '<li id='.$i.' value="'.$donnees['id_question'].'">'.$donnees['nom_question'].' ('.$donnees['nom_type_question'].')';
 		echo '</li>';
 		$i++;
 	}
@@ -86,15 +81,26 @@ function display_questions_questionnaire($bdd,$fk_questionnaire) {
 	$i=0;
 	//affichage question liées à un questionnaire
 
-		$reponse = $bdd->query("SELECT id_question, nom_question FROM question JOIN questionnaire_question ON question.id_question=questionnaire_question.fk_question where fk_questionnaire=".$fk_questionnaire);//}	
+		$question = $bdd->query("SELECT id_question, nom_question, nom_type_question FROM question JOIN questionnaire_question ON question.id_question=questionnaire_question.fk_question JOIN type_question ON question.fk_type_question=type_question.id_type_question where fk_questionnaire=".$fk_questionnaire);//}	
 
-		while ($donnees = $reponse->fetch()) {
-			echo '<li id='.$i.' value="'.$donnees['id_question'].'">'.$donnees['nom_question'];
-			echo '</li>';
+		while ($donnees = $question->fetch()) {
+			$reponse= $bdd->query("SELECT id_reponse, nom_reponse FROM reponse JOIN question_reponse on question_reponse.fk_reponse=reponse.id_reponse where fk_question=".$donnees['id_question']);
+			echo '<h2 id='.$i.' value="'.$donnees['id_question'].'">'.$donnees['nom_question'].'('.$donnees['nom_type_question'].')';
+			echo '</h2>';
 			$i++;
+
+			echo '<ul id="question_liste" class="question_liste2">';
+
+			while($donnees_r = $reponse->fetch()) {
+				echo '<li value="'.$donnees_r['id_reponse'].'">'.$donnees_r['nom_reponse'];
+				echo '<li>';
+			}
+
+			echo '</ul>';
+			$reponse->closeCursor();
 		}
 
-	$reponse->closeCursor();
+	$question->closeCursor();
 		
 	}
 	
